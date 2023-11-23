@@ -1,42 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scout's Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scout's Tracker</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+        header, footer {
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            padding: 15px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:active {
+            background-color: #367c39;
+        }
+        .status-toggle {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .status-toggle button {
+            width: 48%;
+        }
+        .info-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .big-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            border: 2px solid #4CAF50;
+            margin: 0 auto;
+            position: relative;
+            line-height: 200px;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+        .add-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            line-height: 60px;
+            font-size: 36px;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <button id="stats">Stats</button>
-    <button id="history">History</button>
-    <button id="settings">Settings</button>
-  </header>
-
-  <section id="switch">
-    <button id="awake">Awake</button>
-    <button id="asleep">Asleep</button>
-  </section>
-
-  <section id="feeding">
-    <button id="left">Left</button>
-    <button id="right">Right</button>
-  </section>
-
-  <div id="circle-diagram">
-    <div id="diagram-placeholder">Diagram Placeholder</div>
-    <div id="diagram-info">
-      <!-- Dynamic text would go here -->
-      <p>Awake in: 35 min</p>
-      <p>Ate: 25 min ago</p>
-      <p>Scout</p>
-      <p>20 weeks old</p>
-      <p>110 days old</p>
+    <header class="button-group">
+        <button id="stats">Stats</button>
+        <button id="history">History</button>
+        <button id="settings">Settings</button>
+    </header>
+    <div class="container">
+        <div class="status-toggle">
+            <button id="awake">Awake</button>
+            <button id="asleep">Asleep</button>
+        </div>
+        <div class="button-group">
+            <button id="left">Left</button>
+            <button id="right">Right</button>
+        </div>
+        <div class="info-section">
+            <div class="big-circle">
+                <span>Scout is<br>Awake<br>since 35 min</span>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <footer>
-    <button id="add">+</button>
-  </footer>
+    <button class="add-button">+</button>
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
 </body>
 </html>
