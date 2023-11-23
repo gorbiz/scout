@@ -49,6 +49,16 @@
             background-color: var(--button-active);
         }
 
+        header .emoji-btn {
+          width: 80px; /* Set a fixed width for all buttons */
+        }
+
+        .emoji-btn:before {
+          font-size: 1.2em; /* Set the emoji size explicitly */
+          display: block; /* This will force the emoji on a new line */
+          margin-bottom: 4px; /* Add some space between the emoji and the text */
+        }
+
         button.emoji-btn:before {
             content: attr(data-emoji);
             margin-right: 8px;
@@ -72,6 +82,21 @@
             font-size: 1.1em;
             border: 3px solid var(--accent-color);
             position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack text vertically */
+        }
+
+        .big-circle .emoji {
+            font-size: 3rem; /* Larger emoji size */
+            margin-bottom: 8px; /* Space between emoji and text */
+        }
+
+        .big-circle-text {
+            font-size: 1.2rem;
+            color: var(--button-text-color);
         }
 
         .big-circle:before {
@@ -96,13 +121,19 @@
             line-height: 60px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+            font-size: 24px; /* Adjust the size of the plus sign */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #50fa7b; /* Green color for the plus button */
         }
 
         .add-button:before {
             content: '➕';
             font-size: 1.5em;
         }
-    </style>
+</style>
 </head>
 <body>
     <header>
