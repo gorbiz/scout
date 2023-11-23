@@ -3,104 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scout's Tracker</title>
+    <title>Scout's Sleep & Feed Tracker</title>
     <style>
+        :root {
+            --dark-bg: #121212;
+            --light-text: #e0e0e0;
+            --accent-color: #bb86fc;
+            --button-bg: #333;
+            --button-active: #222;
+            --button-text: #fff;
+            --button-emoji: #ffd166;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: #f9f9f9;
-            color: #333;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            max-width: 100vw;
+            overflow-x: hidden;
         }
+
         header, footer {
-            background: #fff;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            padding: 15px;
-        }
-        .button-group {
+            background: var(--button-bg);
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            align-items: center;
         }
+
         button {
-            background-color: #4CAF50; /* Green */
+            background-color: var(--button-bg);
             border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
+            color: var(--button-text);
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 8px;
             font-size: 16px;
-            margin: 4px 2px;
             cursor: pointer;
-            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
+
         button:active {
-            background-color: #367c39;
+            background-color: var(--button-active);
         }
-        .status-toggle {
-            text-align: center;
-            margin: 20px 0;
+
+        button.emoji-btn:before {
+            content: attr(data-emoji);
+            margin-right: 8px;
+            font-size: 1.2em;
         }
-        .status-toggle button {
-            width: 48%;
-        }
+
         .info-section {
             text-align: center;
-            margin: 40px 0;
+            margin: 20px 0 40px;
         }
+
         .big-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 100%;
-            border: 2px solid #4CAF50;
+            width: 250px;
+            height: 250px;
+            border-radius: 125px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            line-height: 250px;
+            text-align: center;
             margin: 0 auto;
+            font-size: 1.1em;
+            border: 3px solid var(--accent-color);
             position: relative;
-            line-height: 200px;
-            font-size: 18px;
-            color: #4CAF50;
         }
+
+        .big-circle:before {
+            content: '👶';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3em;
+        }
+
         .add-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 30px;
-            line-height: 60px;
-            font-size: 36px;
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
             position: fixed;
             right: 20px;
             bottom: 20px;
-            background-color: #4CAF50;
-            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            font-size: 24px;
+            line-height: 60px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .add-button:before {
+            content: '➕';
+            font-size: 1.5em;
         }
     </style>
 </head>
 <body>
-    <header class="button-group">
-        <button id="stats">Stats</button>
-        <button id="history">History</button>
-        <button id="settings">Settings</button>
+    <header>
+        <button class="emoji-btn" data-emoji="📊" id="stats">Stats</button>
+        <button class="emoji-btn" data-emoji="📅" id="history">History</button>
+        <button class="emoji-btn" data-emoji="⚙️" id="settings">Settings</button>
     </header>
-    <div class="container">
-        <div class="status-toggle">
-            <button id="awake">Awake</button>
-            <button id="asleep">Asleep</button>
-        </div>
-        <div class="button-group">
-            <button id="left">Left</button>
-            <button id="right">Right</button>
-        </div>
-        <div class="info-section">
-            <div class="big-circle">
-                <span>Scout is<br>Awake<br>since 35 min</span>
-            </div>
+
+    <div class="info-section">
+        <div class="big-circle">
+            Scout is<br>Awake<br>since 35 min
         </div>
     </div>
-    <button class="add-button">+</button>
+
+    <div class="info-section">
+        <button class="emoji-btn" data-emoji="☀️" id="awake">Awake</button>
+        <button class="emoji-btn" data-emoji="🌙" id="asleep">Asleep</button>
+    </div>
+
+    <div class="info-section">
+        <button class="emoji-btn" data-emoji="🍼" id="left">Left</button>
+        <button class="emoji-btn" data-emoji="🍼" id="right">Right</button>
+    </div>
+
+    <button class="add-button" id="add"></button>
+
     <footer>
-        <!-- Footer content goes here -->
+        <!-- Footer content like copyright notice can go here -->
     </footer>
 </body>
 </html>
