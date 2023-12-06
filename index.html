@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Light mode CSS variables -->
+    <style>
+        :root {
+            --light-bg: #ffffff;  /* Light background */
+            --light-text: #000000;  /* Dark text for light mode */
+            --light-button-bg: #eeeeee;  /* Lighter button background */
+            --light-button-active: #dddddd;  /* Lighter active button state */
+            --light-button-text: #000000;  /* Dark text on buttons */
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scout's Sleep & Feed Tracker</title>
     <style>
@@ -142,6 +152,11 @@
         <button class="emoji-btn" data-emoji="⚙️" id="settings">Settings</button>
     </header>
 
+    <!-- Toggle button for dark/light mode -->
+    <button class="emoji-btn" id="mode-toggle">🌓</button>
+    <script>
+        document.getElementById('mode-toggle').addEventListener('click', function() { document.body.classList.toggle('light-mode'); });
+    </script>
     <div class="info-section">
         <button class="emoji-btn" data-emoji="☀️" id="awake">Awake</button>
         <button class="emoji-btn" data-emoji="🌙" id="asleep">Asleep</button>
